@@ -2,6 +2,9 @@
     --desaturated-red: hsl(0, 36%, 70%);
     --soft-red: hsl(0, 93%, 68%);
     --dark-grayish-Red: hsl(0, 6%, 24%);
+
+    --light-primary:hsl(0, 80%, 86%);
+    --dark-primary:hsl(0, 74%, 74%);
 }
 
 *,
@@ -14,30 +17,57 @@
 }
 
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     font-family: 'Josefin Sans', sans-serif;
     background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
     min-height: 100vh;
 }
 
 .btn {
-    padding: .75rem 1.5rem;
-    border: none;
-    outline: none;
+    padding: .75em 3em;
+    border:none;
+
+    cursor: pointer;
 }
 
 .btn-primary {
+    transition:   transform 0.3s;
     background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
     border-radius: 30px;
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1) ,
+    5px 15px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.btn-primary:hover{
+    transform: scale(1.1);
+    background: var(--light-primary);
+}
+
+
+.internal{
+    width: 90%;
+    margin:0 auto;
 }
 
 .soon-logo img {
-    height: 1.5rem;
+    height: 1.5em;
+    margin:1.5em 0;
 }
 
+.soon-info{
+    height: fit-content;
+    padding: 2em 0;
+}
+
+
 .soon-info h1 {
+    width: 100%;
     text-transform: uppercase;
-    letter-spacing: 9px;
+    letter-spacing: 20px;
     text-align: center;
     line-height: 1.2;
     font-weight: 600;
@@ -53,41 +83,134 @@ body {
 
 .soon-info p {
     color: var(--desaturated-red);
+    font-size: 1rem;
     line-height: 1.6;
     text-align: center;
+    margin-top: 2em;
 }
 
 .soon-hero-img img {
     width: 100%;
+    height: 100%;
 }
 
 .soon-form {
+    box-sizing: border-box;
+    width: 100%;
     border: 1px solid var(--desaturated-red);
     border-radius: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 2em;
 }
 
-.email {
+.soon-form .email {
     width: 100%;
     outline: none;
     border: none;
     background: transparent;
-    padding: 0 1.2rem;
+    padding: 0 1.5em;
 }
 
-.email::-webkit-input-placeholder {
-    color: var(--desaturated-red);
-    opacity: 0.7;
-}
-
-.email::-ms-input-placeholder {
-    color: var(--desaturated-red);
-    opacity: 0.7;
-}
 
 .email::placeholder {
     color: var(--desaturated-red);
-    opacity: 0.7;
+    opacity: 0.6;
+    letter-spacing: 2px;
+}
+
+.soon-form #email-error-icn{
+    display: none;
+    margin: 0 .5em;
+}
+
+#email-error-msg{
+    display: none;
+    color: var(--soft-red);
+    margin-top:.5em;
+    padding-left: 1.5em;
+}
+
+.show{
+    display: block;
+}
+
+
+
+footer{
+    margin-top: 2em;
+    justify-self:flex-end;
+}
+
+
+
+
+@media (min-width: 375px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+
+    body{
+        background: url("images/bg-pattern-desktop.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position-x: center;
+        background-position-y: center;
+    }
+
+    .container {
+        max-width: 740px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .soon{
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        grid-template-rows: 4.5em auto;
+    }
+    .soon-hero-img{
+        grid-column: 2;
+        grid-row:1 / span 2;
+    }
+
+    .soon-info{
+        align-self: center;
+    }
+
+
+    .soon-info>*{
+        text-align: left !important;
+    }
+  
+    .internal{
+        width: 70%;
+    }
+
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+
+   
+    .soon-info h1{
+        font-size: 3rem;
+    }
+    .internal{
+        width: 65%;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
 }

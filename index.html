@@ -21,22 +21,28 @@
 
     <main>
         <div class="container">
-            <div class="soon">
-                <div class="soon-logo">
+                <div class="soon">
+                <div class="soon-logo internal">
                     <img src="images/logo.svg" alt="base apparel logo">
                 </div>
                 <div class="soon-hero-img">
-                    <img src="./images/hero-mobile.jpg" alt="an image for model">
+                    <picture>
+                        <source srcset="images/hero-mobile.jpg" media="(max-width:767px)">
+                        <img src="images/hero-desktop.jpg" alt="apparel hero" class="hero-desktop" />
+                    </picture>
+
                 </div>
-                <div class="soon-info">
+                <div class="soon-info internal">
                     <h1><span>We're</span>coming <br> soon</h1>
                     <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
                     <form class="soon-form">
                         <input type="email" class="email" placeholder="Email Address">
-                        <button type="submit" class=" btn btn-submit btn-primary">
+                        <img id="email-error-icn" src="images/icon-error.svg" alt="">
+                        <button type="submit" class=" btn btn-submit btn-primary" id="submit-btn">
                           <img src="images/icon-arrow.svg" alt="submit button">
                         </button>
                     </form>
+                    <small id="email-error-msg"   >Please provide a valid email</small>
                 </div>
             </div>
 
@@ -46,10 +52,15 @@
 
 
     <footer>
-        <p class="attribution">
-            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your Name Here</a>.
-        </p>
+        <div class="container">
+            <p class="attribution">
+                Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your Name Here</a>.
+            </p>
+        </div>
+
     </footer>
+
+    <script src="app.js"></script>
 </body>
 
 </html>
