@@ -59,6 +59,7 @@ body {
 }
 
 .soon-info{
+    position: relative;
     height: fit-content;
     padding: 2em 0;
 }
@@ -126,14 +127,15 @@ body {
 }
 
 #email-error-msg{
+    position: absolute;
+    bottom: .75em;
     display: none;
     color: var(--soft-red);
-    margin-top:.5em;
     padding-left: 1.5em;
 }
 
 .show{
-    display: block;
+    display: block !important;
 }
 
 
